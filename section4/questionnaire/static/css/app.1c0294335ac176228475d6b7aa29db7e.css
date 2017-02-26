@@ -69,7 +69,8 @@ h2 {
       justify-content: center;
 }
 #addQn[data-v-514da93a] {
-  padding: 10px 20px;
+  height: 40px;
+  width: 100px;
   background: #ee7419;
   border: none;
   border-radius: 5px;
@@ -77,7 +78,12 @@ h2 {
   color: #fff;
   font-size: 20px;
   cursor: pointer;
-  display:table-cell;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
 }
 #addQn span[data-v-514da93a]:before {
   content: "+";
@@ -785,4 +791,4 @@ hr[data-v-5536f32a] {
   *+height: 1%;
 }
 
-/*# sourceMappingURL=app.d8d1828b89af63bbc0ceedaab60aaa7d.css.map*/
+/*# sourceMappingURL=app.1c0294335ac176228475d6b7aa29db7e.css.map*/
