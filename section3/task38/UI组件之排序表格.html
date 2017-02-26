@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>UI组件之排序表格</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<table id="mytable"></table>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript">
+
+	var config = {
+		"id":"mytable",
+		"data":{
+			"thead":[
+				{"name":"name","label":"姓名","sortable":"false"},
+				{"name":"chinese","label":"语文","sortable":"true"},
+				{"name":"math","label":"数学","sortable":"true"},
+				{"name":"english","label":"英语","sortable":"true"},
+				{"name":"total","label":"总分","sortable":"true"}
+			],
+			"tbody":[
+				["小明", "80", "90", "78", "248"],
+				["小黄", "89", "67", "100", "256"],
+				["小白", "100", "88", "77", "265"],
+				["哈哈", "57", "84", "63", "204"],
+				["呼呼", "48", "94", "75", "217"]
+			]
+		}
+	}
+
+	var table = new SortTable(config);
+	table.init(config);
+
+	</script>
+
+</body>
+</html>

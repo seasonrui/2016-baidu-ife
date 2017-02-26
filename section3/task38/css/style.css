@@ -1,0 +1,49 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+table{
+	border-collapse: collapse;
+	margin: 20px auto;
+}
+thead{
+	background-color: #333;
+	color: #fff;
+}
+
+table tr:nth-child(even){
+	background: #eee;
+	
+}
+table,td,th{
+	border: 1px solid black;
+	padding: 10px;
+	text-align: center;
+	min-width: 100px;
+	position: relative;
+}
+th span {
+  content: '';
+  position: absolute;
+  right: 8px;
+}
+th .desc{
+	width: 0;
+	height: 0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-top: 8px solid #fff;
+	cursor: pointer;
+  	bottom: 8px;
+	
+}
+th .asc{
+	width: 0;
+	height: 0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-bottom: 8px solid #fff;
+	cursor: pointer;
+  	top: 8px;
+
+}

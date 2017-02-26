@@ -1,0 +1,30 @@
+.wrap{
+	width: 500px;
+	margin: 30px auto;
+}
+label{
+	margin-right: 20px;
+	font-size: 22px;
+}
+input[type='text']{
+	width: 300px;
+	height: 45px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	outline: none;
+	box-shadow: 5px;
+	padding: 2px 5px;
+	line-height: 30px;
+}
+input[type='submit']{
+	width: 70px;
+	height: 50px;
+	background: #2F79BA;
+	color: #fff;
+	border-radius: 5px;
+	font-size: 22px;
+}
+p{
+	margin-left: 80px;
+	color: #ccc;
+}

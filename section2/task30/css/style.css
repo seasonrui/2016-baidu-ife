@@ -1,0 +1,41 @@
+.option{
+	width: 500px;
+	margin: 0 auto;
+}
+.option:before,.option:after{
+	content: "";
+	display: table;
+}
+.option:after{
+	clear: both;
+}
+.option{
+	zoom:1;
+}
+label{
+	font-size: 20px;
+	float: left;
+	text-align: right;
+	width: 20%;
+}
+input{
+	height: 30px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	box-shadow: 5px;
+	padding: 2px 5px;
+	line-height: 30px;
+	float: right;
+	width: 75%;
+	outline: none;
+}
+#submit{
+	width: 70px;
+	height: 30px;
+	float: right;
+}
+p{
+	float: right;
+	width: 75%;
+	color: #ccc;
+}
