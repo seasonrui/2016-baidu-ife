@@ -1,0 +1,28 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.box{
+	padding: 16px 0 0 16px; 
+	float: left;
+}
+
+.pic img{
+	height: auto;
+}
+#mask{
+	background: black;
+	z-index: 1000;
+	opacity: 0.5
+}
+.displayImg{
+	z-index: 1001;
+	position: fixed;
+  	top: 0;
+  	width: 100%;
+  	height: 100%;
+  	background-color: rgba(0, 0, 0, .8);
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}

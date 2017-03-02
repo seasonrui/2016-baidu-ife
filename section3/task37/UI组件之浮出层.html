@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IFE JavaScript Task 37</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div class="wrap">
+		<button id="btn">弹出浮出层</button>
+		<p>点击按钮，显示浮出层</p>
+		<p>点击半透明遮罩或确认和取消，关闭浮出层</p>
+		<p>拖拽浮出层顶部，可使其移动</p>
+		<p>不可拖拽出可视区域外</p>
+	</div>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript">
+		var config = {
+			"id":"btn",
+			"title":"这是弹出层标题",
+			"content":"这是弹出层内容"
+		}
+		var myDialog = new Dialog(config);
+		myDialog.init(config);
+
+	</script>
+</body>
+</html>
