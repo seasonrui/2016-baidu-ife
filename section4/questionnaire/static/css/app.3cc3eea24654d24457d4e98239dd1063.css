@@ -459,9 +459,11 @@ table tbody tr td span[data-v-514da93a] {
     visibility: hidden;
 }
 #edit .footer[data-v-4d6d65c5] {
-    padding: 5px;
+    padding: 10px 80px;
 }
 #edit .footer input[data-v-4d6d65c5] {
+      float: right;
+      margin-right: 10px;
       width: 80px;
       height: 30px;
       border: 1px solid #888;
@@ -843,4 +845,4 @@ table tbody tr td span[data-v-514da93a] {
     visibility: hidden;
 }
 
-/*# sourceMappingURL=app.438841a311694b04fbb19c8c1c8f6719.css.map*/
+/*# sourceMappingURL=app.3cc3eea24654d24457d4e98239dd1063.css.map*/
