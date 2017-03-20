@@ -1,6 +1,6 @@
 # questionnaire
 
-> weixin-questionaire
+> weixing-questionaire
 
 ## Build Setup
 

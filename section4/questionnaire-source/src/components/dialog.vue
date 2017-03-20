@@ -27,7 +27,9 @@
   };
 </script>
 
-<style scoped>
+<style scoped lang='scss'>
+@import '../../common/style/variables.scss';
+
 .dialog-mask {
   position: fixed;
   z-index: 9998;
@@ -37,46 +39,46 @@
   height: 100%;
   background-color: rgba(0, 0, 0, .5);
   transition: opacity .3s ease;
-}
-.dialog-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  margin: auto;
-  width: 200px;
-  height: 100px;
-  box-shadow:0 0.05em 0.25em rgba(0,0,0,.5);
-}
-.dialog-content {
-  background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
-  transition: all .3s ease;
-  height: 100%;
-}
-.dialog-header {
-  padding: 8px;
-  background: #ccc;
-}
-.dialog-header h3{
-  font-size: 18px;
-  font-weight: 700px;
-}
-.dialog-body {
-  padding: 20px;
-}
-.dialog-footer .dialog-btn{
-  border: none;
-  padding: 5px;
-  border-radius: 5px;
-  background-color: #ccc;
-  cursor: pointer;
-  margin: 5px;
-}
-.dialog-footer .dialog-btn:hover{
-  background-color: #ee7419;
+  .dialog-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    width: 200px;
+    height: 100px;
+    box-shadow: 0 0.05em 0.25em rgba(0, 0, 0, .5);
+    .dialog-content {
+      background-color: $white;
+      border-radius: 2px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+      transition: all .3s ease;
+      height: 100%;
+      .dialog-header {
+        padding: 8px;
+        background: $grey;
+        h3 {
+          font-size: $font-size-lg;
+          font-weight: 700px;
+        }
+      }
+      .dialog-body {
+        padding: 20px;
+      }
+      .dialog-footer .dialog-btn{
+        border: none;
+        padding: 5px;
+        border-radius: 5px;
+        background-color: $grey;
+        cursor: pointer;
+        margin: 5px;
+        &:hover{
+          background-color: $background-color;
+        };
+      }
+    }
+  }
 }
 
 .dialog-enter {

@@ -90,141 +90,114 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped  lang='scss'>
+@import '../../common/style/mixins/flex-center.scss';
+@import '../../common/style/mixins/button.scss';
+@import '../../common/style/variables.scss';
+
 #fill {
-	padding: 10px 0;
+  padding: 10px 0px;
   width: 100%;
   position: relative;
-}
-
-.title {
-  width: 97%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  height: 45px;
-}
-.title span {
-  width: 100%;
-  text-align: center;
-  border: none;
-  font-weight: 700;
-  font-size: 20px;
-}
-.title:hover input{
-  background-color: #fef1e8;
-}
-hr {
-  height: 1px;
-  border: none;
-  border-top: 2px solid #ccc;
-  width: 98%;
-  margin: 5px auto;
-}
-.questions {
-  width: 90%;
-  margin: 10px auto;
-  padding: 5px 10px;
-}
-.questions .question {
-  padding: 10px 15px;
-}
-.questions .question:hover {
-  background-color: #fef1e8;
-}
-.questions .question:hover textarea {
-  background-color: #fef1e8;
-}
-.questions .question:hover .q-title span {
-  font-weight: 700;
-}
-.questions .question:hover input {
-  background-color: #fef1e8;
-}
-/*
-.questions .question:hover .q-option span {
-  border: 1px solid #fef1e8;
-} */
-.questions .question .q-title {
-  text-align: left;
-  width: 100%;
-  display: flex;
-  align-items: center;
-}
-.questions .question .q-title span {
-  font-size: 16px;
-}
-.questions .question .q-title input {
-  flex: 1;
-  border: none;
-  font-size: 16px;
-}
-.questions .question .q-content {
-  margin-top: 5px;
-}
-.questions .question .q-option {
-  text-align: left;
-  padding-left: 20px;
-  height: 25px;
-  line-height: 25px;
-  font-size: 16px;
-}
-.type-enter-active {
-  transition: all .3s ease;
-}
-.type-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-.type-enter, .type-leave-active {
-  transform: translateY(10px);
-  opacity: 0;
-}
-.type-text-input {
-  width: 90%;
-  height: 80px;
-  border: 1px solid #ccc;
-  margin-top: 5px;
-}
-.type-text-input:hover {
-  background-color: #fef1e8;
-}
-.type-text-isRequired {
-  text-align: left;
-  margin: 5px 0 10px 20px;
-}
-.footer {
-  padding: 5px;
-}
-.footer input{
-  width: 80px;
-  height: 30px;
-  border: 1px solid #888;
-  border-radius: 3px;
-  box-shadow: 0 0.05em 0.25em rgba(0,0,0,.5);
-  cursor: pointer;
-  background-color: #fff;
-  display: inline-block;
-  font-size: 16px;
-  color: inherit;
-}
-.footer input:hover {
-  background-color: #ee7419;
-  color: #fff;
-}
-.clearfix:after {
-  content: ".";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden
-}
-.clearfix {
-  *+height: 1%;
-}
-.type-enter-active, .type-leave-active {
-  transition: all 1s ease-in;
-}
-.type-enter, .type-leave {
-  transition: all 10s linear;
-}
+  .title {
+    width: 97%;
+    height: 45px;
+    margin: 0 auto;
+    @include flex-center;
+    span {
+      width: 100%;
+      text-align: center;
+      border: none;
+      font-weight: 700;
+      font-size: $font-size-lg; 
+    }
+    &:hover {
+      background-color: $hover-bcg-color;
+    }
+  }
+  hr {
+    height: 1px;
+    border: none;
+    border-top: 2px solid $grey;
+    width: 98%;
+    margin: 5px auto;
+  }
+  .questions {
+    width: 90%;
+    margin: 10px auto;
+    padding: 5px 10px;
+    .question {
+      padding: 10px 15px;
+      &:hover {
+        background-color: $hover-bcg-color;
+      }
+      &:hover {
+        textarea {
+          background-color: $hover-bcg-color;
+        }
+      }
+      &:hover {
+        .q-title {
+          span {
+            font-weight: 700;
+          }
+        }
+      }
+      &:hover {
+        input {
+          background-color: $hover-bcg-color;
+        }
+      }
+      .q-title {
+        text-align: left;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        span {
+          font-size: $font-size-md;
+        }
+      }       
+      .q-content {
+        margin-top: 5px;
+        .q-option {
+          text-align: left;
+          padding-left: 20px;
+          height: 25px;
+          line-height: 25px;
+          font-size: $font-size-md;
+          input {
+            flex: 1;
+            border: none;
+          }
+        }
+      }
+      .type-text-input {
+        width: 90%;
+        height: 80px;
+        border: 1px solid $grey;
+        margin-top: 5px;
+        &:hover {
+          background-color: $hover-bcg-color;
+        }
+      }
+      .type-text-isRequired {
+        text-align: left;
+        margin: 5px 0 10px 20px;
+      }
+    }
+  }
+  .footer {
+    padding: 5px;
+    input {
+      @include button;
+    }
+    .clearfix:after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden
+    }
+  }
+}     
 </style>

@@ -19,16 +19,16 @@
         </div>
       </div>
     </div>
-    	<div class='add-qn'>
-        <transition name='type'>
-          <div class='type-qn' v-if='status.isChooseType'>
-            <button class='radio' @click='chooseType("radio")'>单选</button>
-            <button class='checkbox' @click='chooseType("checkbox")'>多选</button>
-            <button class='text' @click='chooseType("text")'>文本</button>
-          </div>
-        </transition>
-        <div class='btn-qn' @click='addQn'><span>添加问题</span></div>
-      </div>
+  	<div class='add-qn'>
+      <transition name='type'>
+        <div class='type-qn' v-if='status.isChooseType'>
+          <button class='radio' @click='chooseType("radio")'>单选</button>
+          <button class='checkbox' @click='chooseType("checkbox")'>多选</button>
+          <button class='text' @click='chooseType("text")'>文本</button>
+        </div>
+      </transition>
+      <div class='btn-qn' @click='addQn'><span>添加问题</span></div>
+    </div>
     <hr/>
     <div class='footer clearfix'>
       <div class='expdate'>
@@ -83,17 +83,12 @@ export default {
   },
   beforeCreate () {
     if (this.$route.params.id !== undefined) {
-      // this.questionnaireId = this.$route.params.id;
-      // console.log('看id:' + this.questionnaireId);
       this.$store.dispatch('editQuestionnaire', this.$route.params.id);
     } else {
       this.$store.dispatch('addQuestionnaire');
     }
   },
   methods: {
-    /* saveDate (selectedDate) {
-      this.$store.dispatch('saveDate', selectedDate);
-    }, */
     addQn () {
       this.$store.dispatch('addQuestion');
     },
@@ -179,229 +174,212 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang='scss'>
+@import '../../common/style/mixins/flex-center.scss';
+@import '../../common/style/mixins/button.scss';
+@import '../../common/style/variables.scss';
+
 #edit {
 	padding: 10px 0;
   width: 100%;
   position: relative;
+  .title {
+    width: 97%;
+    margin: 0 auto;
+    @include flex-center;
+    height: 45px;
+    input {
+      width: 100%;
+      text-align: center;
+      border: none;
+      font-weight: 700;
+      font-size: $font-size-lg;
+    }
+    &:hover {
+      background-color: $hover-bcg-color;
+      input {
+        background-color: $hover-bcg-color;
+      }
+    }
+  }
+  hr {
+    height: 1px;
+    border: none;
+    border-top: 2px solid $grey;
+    width: 98%;
+    margin: 5px auto;
+  }
+  .questions {
+    width: 90%;
+    margin: 10px auto;
+    padding: 5px 10px;
+    .question {
+      font-size: $font-size-sm;
+      padding: 10px 15px;
+      &:hover {
+        background-color: $hover-bcg-color;
+        textarea {
+          background-color: $hover-bcg-color;
+        }
+        .q-title input {
+          font-weight: 700;
+        }
+        .q-operation {
+          opacity: 1;
+        }
+        input {
+          background-color: $hover-bcg-color;
+        }
+        .q-content .q-option span {
+          border: 1px solid $hover-bcg-color;
+          font-size: $font-size-md;
+        }
+      }
+      .q-title {
+        width: 100%;
+        @include flex-center;
+        span {
+          display: inline-block; 
+          flex: none;
+          width: 25px;
+          font-size: $font-size-md;
+        }
+        input {
+          flex: 1;
+          border: none;
+          font-size: $font-size-md;
+        }
+      }
+      .q-content {
+        margin-top: 5px;
+        .q-option {
+          height: auto;
+          display: flex;
+          align-items:center;
+          padding-left: 20px;
+          input {
+            flex: none;
+          }
+          span {
+            margin-left: 5px;
+            margin-top: 3px;
+            padding: 2px 8px 2px 5px;
+            display: inline-block;
+            border: 1px solid #fff;
+            text-align: left;
+            font-size: $font-size-md;
+            &:focus {
+              border: 1px solid #BBFFEE;
+            }
+          }
+          .q-option-del {
+            cursor: pointer;
+            opacity: 0;
+          }
+          &:hover {
+            .q-option-del {
+              opacity: 1;
+            }
+          }
+        }
+      }
+      .type-text-input {
+        width: 90%;
+        height: 80px;
+        border: 1px solid $grey;
+        margin-top: 5px;
+        &:hover {
+          background-color: $hover-bcg-color;
+        }
+      }
+      .type-text-isRequired {
+        text-align: left;
+        margin: 5px 0 10px 20px;
+      }
+      .add-option {
+        height: 20px;
+        line-height: 20px;
+        border: 1px dashed #000;
+        cursor: pointer;
+        opacity: 0;
+        margin: 10px 0 10px 20px;
+        vertical-align: middle;
+        &:hover {
+          opacity: 1;
+        }
+      }
+      .q-operation {
+        display: flex;
+        justify-content:flex-end;
+        padding-right: 10px;
+        opacity: 0;
+        div {
+          margin-right: 10px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .add-qn {
+    width: 90%;
+    margin: 10px auto;
+    padding: 5px 10px;
+    .type-qn {
+      border: 1px solid $grey;
+      height: 80px;
+      @include flex-center;
+      button {
+        width: 100px;
+        height: 40px;
+        margin-left: 20px;
+        cursor: pointer;
+      }
+    }
+    .btn-qn{
+      height: 80px;
+      line-height: 80px;
+      border: 1px solid $grey;
+      cursor: pointer;
+      span{
+        &:before {
+          content: '+';
+          padding: 5px;
+        }
+      }
+    }
+  }
+  .clearfix {
+    &:after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+  }
+  .footer {
+    padding: 10px 80px;
+    input {
+      float: right;
+      margin-right: 10px;
+      @include button;
+    }
+    .expdate {
+      float: left;
+      padding: 0 10px;
+      span {
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        width: 100px;
+        margin-right: 10px;
+        font-size: $font-size-md;
+      }
+      div {
+        float: right;
+      }
+    }
+  }
 }
 
-.title {
-  width: 97%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  height: 45px;
-}
-.title input {
-  width: 100%;
-  text-align: center;
-  border: none;
-  font-weight: 700;
-  font-size: 20px;
-}
-.title:hover input{
-  background-color: #fef1e8;
-}
-hr {
-  height: 1px;
-  border: none;
-  border-top: 2px solid #ccc;
-  width: 98%;
-  margin: 5px auto;
-}
-.questions {
-  width: 90%;
-  margin: 10px auto;
-  padding: 5px 10px;
-}
-.questions .question {
-  padding: 10px 15px;
-}
-.questions .question:hover {
-  background-color: #fef1e8;
-}
-.questions .question:hover textarea {
-  background-color: #fef1e8;
-}
-.questions .question:hover .q-title input {
-  font-weight: 700;
-}
-.questions .question:hover .q-operation {
-  opacity: 1;
-}
-.questions .question:hover input {
-  background-color: #fef1e8;
-}
-.questions .question:hover .q-option span {
-  border: 1px solid #fef1e8;
-}
-.questions .question .q-title {
-  text-align: left;
-  width: 100%;
-  display: flex;
-  align-items:center;
-}
-.questions .question .q-title span {
-  display: inline-block; 
-  flex: none;
-  width: 25px;
-  font-size: 16px;
-}
-.questions .question .q-title input {
-  flex: 1;
-  border: none;
-  font-size: 16px;
-}
-.questions .question .q-content {
-  margin-top: 5px;
-}
-.questions .question .q-option {
-  height: auto;
-  display: flex;
-  align-items:center;
-  padding-left: 20px;
-}
-.questions .question .q-option input {
-  flex: none;
-}
-.questions .question .q-option span {
-  margin-left: 5px;
-  margin-top: 3px;
-  font-size: 16px;
-  padding: 2px 8px 2px 5px;
-  display: inline-block;
-  border: 1px solid #fff;
-  text-align: left;
-}
-
-.questions .question .q-option span:focus {
-  border: 1px solid #BBFFEE;
-}
-.questions .question .q-option .q-option-del {
-  cursor: pointer;
-  opacity: 0;
-}
-.questions .question .q-option:hover .q-option-del {
-  opacity: 1;
-}
-
-.questions .question .add-option {
-  height: 20px;
-  line-height: 20px;
-  border: 1px dashed #000;
-  cursor: pointer;
-  opacity: 0;
-  margin: 10px 0 10px 20px;
-  vertical-align: middle;
-}
-.questions .question .add-option:hover {
-  opacity: 1;
-}
-.questions .question .q-operation {
-  display: flex;
-  justify-content:flex-end;
-  padding-right: 10px;
-  opacity: 0;
-}
-.questions .question .q-operation div {
-  margin-right: 10px;
-  cursor: pointer;
-}
-.questions .question .q-operation div span {
-  font-size: 14px;
-}
-.add-qn {
-  padding: 5px;
-}
-.add-qn .type-qn {
-  border: 1px solid #ccc;
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.add-qn .type-qn button {
-  width: 100px;
-  height: 40px;
-  margin-left: 20px;
-  cursor: pointer;
-}
-.add-qn .btn-qn{
-  height: 80px;
-  line-height: 80px;
-  border: 1px solid #ccc;
-  cursor: pointer;
-}
-.add-qn .btn-qn span:before {
-  content: '+';
-  padding: 5px;
-
-}
-.type-enter-active {
-  transition: all .3s ease;
-}
-
-.type-enter, .type-leave-active {
-  transform: translateY(10px);
-  opacity: 0;
-}
-.type-text-input {
-  width: 90%;
-  height: 80px;
-  border: 1px solid #ccc;
-  margin-top: 5px;
-}
-.type-text-input:hover {
-  background-color: #fef1e8;
-}
-.type-text-isRequired {
-  text-align: left;
-  margin: 5px 0 10px 20px;
-}
-.footer {
-  padding: 5px;
-}
-.footer input{
-  width: 80px;
-  height: 30px;
-  border: 1px solid #888;
-  border-radius: 3px;
-  box-shadow: 0 0.05em 0.25em rgba(0,0,0,.5);
-  cursor: pointer;
-  background-color: #fff;
-  display: inline-block;
-  font-size: 16px;
-  color: inherit;
-}
-.footer input:hover {
-  background-color: #ee7419;
-  color: #fff;
-}
-.clearfix:after {
-  content: ".";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden
-}
-.clearfix {
-  *+height: 1%;
-}
-.expdate {
-  float: left;
-  padding: 0 10px;
-}
-.expdate span {
-  display: inline-block;
-  height: 30px;
-  line-height: 30px;
-  width: 100px;
-  font-size: 16px;
-  color: #888;
-  margin-right: 10px;
-}
-.expdate div {
-  float: right;
-}
 </style>

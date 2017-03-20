@@ -86,69 +86,63 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.addQn {
-  display: flex;
-  height: 300px;
-  align-items: center;
-  justify-content: center;
-}
+<style scoped lang='scss'>
+@import '../../common/style/mixins/flex-center.scss';
+@import '../../common/style/variables.scss';
+
 #addQn {
   height: 40px;
   width: 100px;
-  background: #ee7419;
+  background: $background-color;
   border: none;
   border-radius: 5px;
   box-shadow: 0 0.05em 0.25em rgba(0,0,0,.5);
-  color: #fff;
-  font-size: 20px;
+  color: $grey;
+  font-size: $font-size-lg;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#addQn span:before {
-  content: "+";
-  color: #fff;
-  padding: 5px 10px;
+  @include flex-center;
+  span:before {
+    content: "+";
+    color: $white;
+    padding: 5px 10px;
+  }
 }
 table {
   width: 100%;
   border-collapse: collapse;
+  thead tr th{
+    font-size: 18px;
+    #newQn {
+      display: inline-block;
+      width: 80px;
+      height: 20px;
+      line-height: 20px;
+      background: $background-color;
+      color: $white;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+  }
+  tbody tr {
+    border-bottom: 1px solid $grey;
+    height: 40px;
+    .released {
+      color: $green;
+    }
+    &:hover {
+      background: $hover-bcg-color;
+    }
+    td {
+      font-size: $font-size-sm;
+      span {
+        display: inline-block;
+        padding: 2px 5px;
+        border: 1px solid $grey;
+        margin-left: 5px;
+        cursor: pointer;
+      }
+    }
+  }
 }
-tbody tr {
-  border-bottom: 1px solid #ccc;
-}
-thead tr th{
-  font-size: 18px;
-}
-tbody tr {
-  height: 40px;
-}
-tbody tr:hover {
-  background: #fef1e8;
-}
-tbody tr td {
-  font-size: 14px;
-}
-tbody tr td span {
-  display: inline-block;
-  padding: 2px 5px;
-  border: 1px solid #ccc;
-  margin-left: 5px;
-  cursor: pointer;
-}
-#newQn {
-  display: inline-block;
-  width: 80px;
-  height: 20px;
-  line-height: 20px;
-  background: #ee7419;
-  color: #fff;
-  margin-left: 10px;
-  cursor: pointer;
-}
-.released {
-  color: #5cb85c;
-}
+
 </style>

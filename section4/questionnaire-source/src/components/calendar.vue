@@ -50,15 +50,7 @@ export default {
       selectedDate: ''
     };
   },
-  /*
-  watch: {
-    selectedDate: function () {
-      console.log(this.selectedDate);
-      if (this.selectedDate !== undefined) {
-        this.$emit('saveDate', this.selectedDate);
-      }
-    }
-  }, */
+
   computed: {
     ...mapGetters({
       editing: 'editing',
@@ -174,114 +166,135 @@ export default {
 };
 
 </script>
-<style>
+<style lang='scss'>
+@import '../../common/style/variables.scss';
 #calendar {
   position: relative;
-}
-.date-panel {
-  position: absolute;
-  width: 280px;
-  height: 220px;
-  padding: 5px;
-  border: 1px solid #ccc;
-  background: #fff;
-  z-index: 999;
-  top: -235px;
-  left: 50px;
-}
-.type-year {
-  width: 100%;
-}
-
-.date-panel ul {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: start;
-  list-style: none;
-}
-.date-panel ul li {
-  width: 40px;
-  box-sizing: border-box;
-  cursor: pointer;
-}
-.panel-header {
-  height: 40px;
-  line-height: 40px;
-}
-.input {
-  height: 30px;
-  line-height: 30px;
-  width: 100px;
-  border: 1px solid #888;
-  border-radius: 4px;
-  cursor: pointer;
-  color: #000;
-  font-size: 14px;
-}
-.prev {
-  display: inline-block;
-  width: 0;
-  height: 0;
-  border-top: 5px solid transparent;
-  border-right: 10px solid #222;
-  border-bottom: 5px solid transparent;
-  cursor: pointer;
-}
-.next {
-  display: inline-block;
-  width: 0;
-  height: 0;
-  border-top: 5px solid transparent;
-  border-left: 10px solid #222;
-  border-bottom: 5px solid transparent;
-  cursor: pointer;
-}
-.year, .month {
-  display: inline-block;
-  width: 80px;
-  height: 20px;
-  line-height: 20px;
-  margin: 5px;
-  vertical-align: middle;
-  cursor: pointer;
-  font-size: 18px;
-}
-.year {
-  padding: 0 5px 0 10px;
-},
-.month {
-  padding: 0 10px 0 5px;
-}
-
-.type-month ul li ,.type-year ul li{
-  width: 70px;
-  height: 60px;
-  line-height: 56px;
-  font-size: 18px;
-}
-.type-month ul li:hover, .type-year ul li:hover{
-  background-color: #ee7419;
-  border-radius: 5px;
-
-}
-.type-date ul li {
-  width: 40px;
-  height: 26px;
-  line-height: 28px;
-  font-size: 16px;
-}
-.type-date date-list li:hover {
-  background-color: #ee7419;
-  border-radius: 5px;
-}
-.preMonth, .nextMonth {
-  color: #ccc;
-}
-.selected {
-  background-color: #ee7419;
-  border-radius: 5px;
+  #mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0.7;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+  }
+  .input {
+    height: 30px;
+    line-height: 30px;
+    width: 100px;
+    border: 1px solid #888;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #000;
+    font-size: $font-size-sm;
+  }
+  .date-panel {
+    position: absolute;
+    width: 280px;
+    height: 220px;
+    padding: 5px;
+    border: 1px solid $grey;
+    background: #fff;
+    z-index: 999;
+    top: -235px;
+    left: 50px;
+    .panel-header {
+      height: 40px;
+      line-height: 40px;
+      .prev {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-right: 10px solid #222;
+        border-bottom: 5px solid transparent;
+        cursor: pointer;
+      }
+      .next {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-left: 10px solid #222;
+        border-bottom: 5px solid transparent;
+        cursor: pointer;
+      }
+      .year {
+        padding: 0 5px 0 10px;
+      },
+      .month {
+        padding: 0 10px 0 5px;
+      }
+      .year, .month {
+        display: inline-block;
+        width: 80px;
+        height: 20px;
+        line-height: 20px;
+        margin: 5px;
+        vertical-align: middle;
+        cursor: pointer;
+        font-size: 18px;
+      }
+    }
+    .type-year {
+      width: 100%;
+      ul li{
+        width: 70px;
+        height: 60px;
+        line-height: 56px;
+        font-size: 18px;
+        &:hover{
+          background-color: $background-color;
+          border-radius: 5px;
+        }
+      }
+    }
+    .type-month {
+      ul li {
+        width: 70px;
+        height: 60px;
+        line-height: 56px;
+        font-size: 18px;
+        &:hover {
+          background-color: $background-color;
+          border-radius: 5px;
+        }
+      }
+    }
+    .type-date {
+      ul li {
+        width: 40px;
+        height: 26px;
+        line-height: 28px;
+        font-size: $font-size-md;
+        date-list li:hover {
+          background-color: $background-color;
+          border-radius: 5px;
+        }
+      }
+      .preMonth, .nextMonth {
+        color: $grey;
+      }
+      .selected {
+        background-color: $background-color;
+        border-radius: 5px;
+      }
+    }
+    ul {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: start;
+      list-style: none;
+      li {
+        width: 40px;
+        box-sizing: border-box;
+        cursor: pointer;
+      }
+    }
+  }
 }
 .toggle-enter, .toggle-leave-active{
   opacity: 0;
@@ -290,15 +303,7 @@ export default {
 .toggle-enter-active, .toggle-leave-active{
   transition: all ease .2s;
 }
-#mask {
-  position: fixed;
-  top: 0;
-  left: 0;
-  opacity: 0.7;
-  height: 100%;
-  width: 100%;
-  z-index: 10;
-}
+
 
   
 </style>

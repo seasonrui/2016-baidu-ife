@@ -169,93 +169,86 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang='scss'>
+@import '../../common/style/mixins/button.scss';
+@import '../../common/style/variables.scss';
 #data{
   padding: 10px 0;
   width: 100%;
   position: relative;
+  .title {
+    width: 97%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    height: 45px;
+    span {
+      width: 100%;
+      text-align: center;
+      border: none;
+      font-weight: 700;
+      font-size: $font-size-lg;
+    }
+  }
+  hr {
+    height: 1px;
+    border: none;
+    border-top: 2px solid $grey;
+    width: 98%;
+    margin: 5px auto;
+  }
+  .questions {
+    width: 90%;
+    margin: 10px auto;
+    padding: 5px 10px;
+    .question-content {
+      border: 1px solid $grey;
+      margin-top: 10px;
+      .question {
+        padding: 10px 15px;
+        float: left;
+        .q-title {
+          text-align: left;
+          width: 100%;
+          display: flex;
+          align-items:center;
+          span {
+            font-size: $font-size-md;
+            font-weight: 700;
+          }
+        }
+        .q-content {
+          margin-top: 5px;
+          .q-option {
+            text-align: left;
+            padding-left: 25px;
+            height: 25px;
+            line-height: 25px;
+            font-size: $font-size-md;
+          }
+        }
+      }
+      .static {
+        float: right;
+        right: 20px;
+      }
+    }
+  }
+  .footer {
+    padding: 5px;
+    input {
+      @include button;
+    }
+  }
+  .clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+  }
 }
-.title {
-  width: 97%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  height: 45px;
-}
-.title span {
-  width: 100%;
-  text-align: center;
-  border: none;
-  font-weight: 700;
-  font-size: 20px;
-}
-hr {
-  height: 1px;
-  border: none;
-  border-top: 2px solid #ccc;
-  width: 98%;
-  margin: 5px auto;
-}
-.questions {
-  width: 90%;
-  margin: 10px auto;
-  padding: 5px 10px;
-}
-.question-content {
-  border: 1px solid #ccc;
-  margin-top: 10px;
-}
-.questions .question {
-  padding: 10px 15px;
-  float: left;
-}
-.static {
-  float: right;
-  right: 20px;
-}
-.questions .question .q-title {
-  text-align: left;
-  width: 100%;
-  display: flex;
-  align-items:center;
-}
-.questions .question .q-title span {
-  font-size: 16px;
-  font-weight: 700;
-}
-.questions .question .q-content {
-  margin-top: 5px;
-}
-.questions .question .q-option {
-  text-align: left;
-  padding-left: 25px;
-  height: 25px;
-  line-height: 25px;
-  font-size: 16px;
-}
-.footer {
-  padding: 5px;
-}
-.footer input{
-  width: 80px;
-  height: 30px;
-  border: 1px solid #888;
-  border-radius: 3px;
-  box-shadow: 0 0.05em 0.25em rgba(0,0,0,.5);
-  cursor: pointer;
-  background-color: #fff;
-  display: inline-block;
-  font-size: 16px;
-  color: inherit;
-}
-.clearfix:after {
-  content: ".";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden
-}
-.clearfix {
-  *+height: 1%;
-}
+
+
+
 </style>
