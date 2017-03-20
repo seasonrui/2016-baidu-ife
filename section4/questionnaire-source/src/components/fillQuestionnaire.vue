@@ -149,7 +149,7 @@ hr {
   text-align: left;
   width: 100%;
   display: flex;
-  align-items:center;
+  align-items: center;
 }
 .questions .question .q-title span {
   font-size: 16px;

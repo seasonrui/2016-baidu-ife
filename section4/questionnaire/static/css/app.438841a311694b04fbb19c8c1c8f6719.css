@@ -421,7 +421,9 @@ table tbody tr td span[data-v-514da93a] {
           cursor: pointer;
 }
 #edit .add-qn[data-v-4d6d65c5] {
-    padding: 5px;
+    width: 90%;
+    margin: 10px auto;
+    padding: 5px 10px;
 }
 #edit .add-qn .type-qn[data-v-4d6d65c5] {
       border: 1px solid #ccc;
@@ -484,7 +486,6 @@ table tbody tr td span[data-v-514da93a] {
         height: 30px;
         line-height: 30px;
         width: 100px;
-        color: white;
         margin-right: 10px;
         font-size: 16px;
 }
@@ -633,7 +634,6 @@ table tbody tr td span[data-v-514da93a] {
   padding: 10px 0px;
   width: 100%;
   position: relative;
-  font-size: 16px;
 }
 #fill .title[data-v-249f9f6c] {
     width: 97%;
@@ -691,6 +691,9 @@ table tbody tr td span[data-v-514da93a] {
         -ms-flex-align: center;
             align-items: center;
 }
+#fill .questions .question .q-title span[data-v-249f9f6c] {
+          font-size: 16px;
+}
 #fill .questions .question .q-content[data-v-249f9f6c] {
         margin-top: 5px;
 }
@@ -699,6 +702,7 @@ table tbody tr td span[data-v-514da93a] {
           padding-left: 20px;
           height: 25px;
           line-height: 25px;
+          font-size: 16px;
 }
 #fill .questions .question .q-content .q-option input[data-v-249f9f6c] {
             -ms-flex: 1;
@@ -839,4 +843,4 @@ table tbody tr td span[data-v-514da93a] {
     visibility: hidden;
 }
 
-/*# sourceMappingURL=app.367fd7faa86685d6ef15d7387c631548.css.map*/
+/*# sourceMappingURL=app.438841a311694b04fbb19c8c1c8f6719.css.map*/
